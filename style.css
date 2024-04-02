@@ -7,14 +7,6 @@
     display: flex;
 }
 
-.letters-field {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    padding-top: 40px;
-}
-
 .letter {
     position: relative;
     font-size: 40px;

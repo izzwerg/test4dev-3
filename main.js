@@ -1,21 +1,19 @@
 const mainForm = document.querySelector(".main-form");
-const startField = document.querySelector(".start-field");
-let mousePosition;
 
 mainForm.addEventListener("submit", onSubmit);
 
 function onSubmit(e) {
   e.preventDefault();
-  startField.innerHTML = "";
   let letters = e.target.elements.text.value.split("");
   mainForm.reset();
   let markupData = "";
   for (let index = 0; index < letters.length; index++) {
     markupData += `<div class="letter">${letters[index]}</div>`;
   }
+  document.body.insertAdjacentHTML("beforeend", "<div class='start-field'></div>");
+  const startField = document.querySelector(".start-field");
   startField.insertAdjacentHTML("beforeend", markupData);
   const renderedLetters = document.querySelectorAll(".letter");
-  console.log(renderedLetters);
   renderedLetters.forEach((renderedLetter) => {
     renderedLetter.onmousedown = function (event) {
       let shiftX = event.clientX - renderedLetter.getBoundingClientRect().left;
