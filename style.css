@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+.start-field {
+    position: relative;
+    display: flex;
+}
+
+.letters-field {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    padding-top: 40px;
+}
+
+.letter {
+    position: relative;
+    font-size: 40px;
+    font-weight: 700;
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
