@@ -15,3 +15,7 @@
     height: fit-content;
     cursor: pointer;
 }
+
+.selected {
+    color: red;
+}
