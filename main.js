@@ -8,14 +8,18 @@ function onSubmit(e) {
   mainForm.reset();
   let markupData = "";
   for (let index = 0; index < letters.length; index++) {
-    markupData += `<div class="letter">${letters[index]}</div>`;
+    markupData += `<div class="letter single">${letters[index]}</div>`;
   }
   document.body.insertAdjacentHTML("beforeend", "<div class='start-field'></div>");
   const startField = document.querySelector(".start-field");
   startField.insertAdjacentHTML("beforeend", markupData);
-  const renderedLetters = document.querySelectorAll(".letter");
+  moved();
+}
+
+function moved() {
+  const renderedLetters = document.querySelectorAll(".single");
   renderedLetters.forEach((renderedLetter) => {
-    renderedLetter.onmousedown = function (event) {
+    renderedLetter.onmousedown = function (event) { //https://javascript.info/mouse-drag-and-drop
       let shiftX = event.clientX - renderedLetter.getBoundingClientRect().left;
       let shiftY = event.clientY - renderedLetter.getBoundingClientRect().top;
 
