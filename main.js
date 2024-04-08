@@ -39,11 +39,13 @@ function moved() {
         renderedLetter.style.top = pageY - shiftY / 2 + "px";
         const { x, y, width, height } = renderedLetter.getBoundingClientRect();
         renderedLetter.dataset.info = JSON.stringify({ x, y, width, height });
-        selectLetters()
+        
+        // document.removeEventListener("pointerdown", createSelectAreaDiv);
+        
       }
 
       moveAt(event.pageX, event.pageY);
-      
+      selectLetters()
 
       function onMouseMove(event) {
         moveAt(event.pageX, event.pageY);
@@ -54,6 +56,7 @@ function moved() {
       renderedLetter.onmouseup = function () {
         document.removeEventListener("mousemove", onMouseMove);
         renderedLetter.onmouseup = null;
+        
       };
     };
     renderedLetter.ondragstart = function () {
